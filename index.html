@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<title>Skroderdienas Silmačos</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #1b5e20;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background: #388e3c;
+}
+
+.section {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Skroderdienas Silmačos</h1>
+    <p>Rūdolfa Blaumaņa luga</p>
+</header>
+
+<nav>
+    <button onclick="showTab('saturs')">Saturs</button>
+    <button onclick="showTab('personazi')">Personāži</button>
+    <button onclick="showTab('galerija')">Galerija</button>
+</nav>
+
+<div id="saturs" class="section active">
+    <h2>Saturs</h2>
+    <div class="card">
+        <p>
+        Darbība norisinās Silmaču saimniecībā pirms Jāņiem.
+        Lugas centrā ir mīlestības attiecības, pārpratumi un komiskas situācijas.
+        </p>
+
+        <p>
+        Notikumu gaitā veidojas vairāki pāri, un beigās viss atrisinās laimīgi.
+        Šī luga ir viena no populārākajām latviešu komēdijām.
+        </p>
+    </div>
+</div>
+
+<div id="personazi" class="section">
+    <h2>Personāži</h2>
+
+    <div class="card"><b>Antons</b> – skroderis</div>
+    <div class="card"><b>Elīna</b> – jauna sieviete</div>
+    <div class="card"><b>Dūdars</b> – jautrs un komiks tēls</div>
+    <div class="card"><b>Bebene</b> – saimniece</div>
+    <div class="card"><b>Aleksis</b> – viens no preciniekiem</div>
+
+    <p>👉 Vari pievienot vēl citus personāžus.</p>
+</div>
+
+<div id="galerija" class="section">
+    <h2>Galerija</h2>
+
+    <div class="gallery">
+        <img src="skrod 3.jpg">
+        <img src="skrod 2.jpg">
+        <img src="skrod.jpg"
+    </div>
+
+    <p>👉 Nomaini bildes uz īstiem kadriem no izrādes.</p>
+</div>
+
+<script>
+function showTab(tab) {
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(s => s.classList.remove('active'));
+
+    document.getElementById(tab).classList.add('active');
+}
+</script>
+
+</body>
+</html>
