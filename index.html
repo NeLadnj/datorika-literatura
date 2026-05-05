@@ -2,66 +2,115 @@
 <html lang="lv">
 <head>
 <meta charset="UTF-8">
-<title> Latvieša gramata "Skroderdienas Silmačos"</title>
+<title>Latvieša grāmata "Skroderdienas Silmačos"</title>
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+    color: #333;
 }
 
+/* HEADER */
 header {
-    background: #2e7d32;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
     color: white;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* NAV */
 nav {
     display: flex;
     justify-content: center;
     background: #1b5e20;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 nav button {
     background: none;
     border: none;
     color: white;
-    padding: 15px 20px;
+    padding: 15px 25px;
     cursor: pointer;
     font-size: 16px;
+    transition: 0.3s;
 }
 
 nav button:hover {
     background: #388e3c;
 }
 
+nav button.active {
+    background: #4caf50;
+}
+
+/* SECTIONS */
 .section {
     display: none;
-    padding: 20px;
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
 }
 
 .active {
     display: block;
 }
 
+/* CARDS */
 .card {
     background: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* GALLERY */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .gallery img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
 }
 </style>
 
@@ -75,9 +124,9 @@ nav button:hover {
 </header>
 
 <nav>
-    <button onclick="showTab('saturs')">Saturs</button>
-    <button onclick="showTab('personazi')">Personāži</button>
-    <button onclick="showTab('galerija')">Galerija</button>
+    <button onclick="showTab('saturs', this)" class="active">Saturs</button>
+    <button onclick="showTab('personazi', this)">Personāži</button>
+    <button onclick="showTab('galerija', this)">Galerija</button>
 </nav>
 
 <div id="saturs" class="section active">
@@ -92,16 +141,18 @@ nav button:hover {
         Notikumu gaitā veidojas vairāki pāri, un beigās viss atrisinās laimīgi.
         Šī luga ir viena no populārākajām latviešu komēdijām.
         </p>
+
         <p>
-            📖 Sižets:
-            Rūdolfa Blaumaņa luga “Skroderdienas Silmačos” ir jautra un dzīvīga komēdija par mīlestību, pārpratumiem un cilvēku attiecībām, kuras darbība norisinās Silmaču mājās īsi pirms Jāņiem.
+        Sižets:
+        Rūdolfa Blaumaņa luga “Skroderdienas Silmačos” ir jautra un dzīvīga komēdija par mīlestību, pārpratumiem un cilvēku attiecībām, kuras darbība norisinās Silmaču mājās īsi pirms Jāņiem.
 
-            Silmaču saimniecībā valda rosība — tiek gatavoti svētki, un ierodas skroderi, lai šūtu drēbes. Vienlaikus sākas dažādas mīlas intrigas un pārpratumi. Vairāki personāži cenšas noskaidrot savas jūtas, bet bieži vien rodas greizsirdība, maldi un komiskas situācijas.
+        Silmaču saimniecībā valda rosība — tiek gatavoti svētki, un ierodas skroderi, lai šūtu drēbes. Vienlaikus sākas dažādas mīlas intrigas un pārpratumi. Vairāki personāži cenšas noskaidrot savas jūtas, bet bieži vien rodas greizsirdība, maldi un komiskas situācijas.
 
-            Svarīga loma ir attiecībām starp Antonu, Elīnu un citiem tēliem, kuri iesaistās sarežģītās un reizēm pat smieklīgās situācijās. Katrs cenšas atrast savu laimi, taču tas nenotiek bez šķēršļiem.
-Lugas gaitā pārpratumi pakāpeniski tiek atrisināti. Noslēgumā viss sakārtojas — izveidojas vairāki pāri, un Jāņu svētki tiek sagaidīti ar prieku, dziesmām un kopības sajūtu.
+        Svarīga loma ir attiecībām starp Antonu, Elīnu un citiem tēliem, kuri iesaistās sarežģītās un reizēm pat smieklīgās situācijās. Katrs cenšas atrast savu laimi, taču tas nenotiek bez šķēršļiem.
+
+        Lugas gaitā pārpratumi pakāpeniski tiek atrisināti. Noslēgumā viss sakārtojas — izveidojas vairāki pāri, un Jāņu svētki tiek sagaidīti ar prieku, dziesmām un kopības sajūtu.
         </p>
-</div>
+    </div>
 </div>
 
 <div id="personazi" class="section">
@@ -109,32 +160,31 @@ Lugas gaitā pārpratumi pakāpeniski tiek atrisināti. Noslēgumā viss sakārt
 
     <div class="card"><b>Antons</b> – skroderis</div>
     <div class="card"><b>Elīna</b> – jauna sieviete</div>
-    <div class="card"><b>Dūdars</b> – jautrs un komiks tēls</div>
+    <div class="card"><b>Dūdars</b> – jautrs un komisks tēls</div>
     <div class="card"><b>Bebene</b> – saimniece</div>
     <div class="card"><b>Aleksis</b> – viens no preciniekiem</div>
-
-
 </div>
 
 <div id="galerija" class="section">
     <h2>Galerija</h2>
 
     <div class="gallery">
-        <img src="img/skrod 3.jpg">
-        <img src="img/skrod 2.jpg">
-        <img src="img/skrod.jpg">
-    <div>
-</div>
-
-    
+        <img src="img/skrod 3.jpg" alt="Skroderdienas attēls 1">
+        <img src="img/skrod 2.jpg" alt="Skroderdienas attēls 2">
+        <img src="img/skrod.jpg" alt="Skroderdienas attēls 3">
+    </div>
 </div>
 
 <script>
-function showTab(tab) {
+function showTab(tab, el) {
     let sections = document.querySelectorAll('.section');
+    let buttons = document.querySelectorAll('nav button');
+
     sections.forEach(s => s.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
 
     document.getElementById(tab).classList.add('active');
+    el.classList.add('active');
 }
 </script>
 
